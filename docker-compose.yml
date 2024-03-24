@@ -1,0 +1,26 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - 8080:8080
+    restart: always
+    # volumes:
+    #   - ./backend:
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/usr/src/app
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 84:80
+    depends_on:
+      - backend
+      - frontend
+    restart: always
