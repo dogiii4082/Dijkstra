@@ -8,6 +8,7 @@ public class HelloController {
 
     @GetMapping("/api")
     public String index() {
+        System.out.println("@@@");
         return "aaaaaaaaaaaaaa";
     }
 }
