@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: backend
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      database: mydb
+      username: qwe
+      password: 1234
+  devtools:
+    restart:
+      enabled: true
