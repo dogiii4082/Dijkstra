@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class MongoDBTestService {
 
-    MongoDBTestRepository mongoDBTestRepository;
+    private final MongoDBTestRepository mongoDBTestRepository;
 
     public MongoDBTestService(MongoDBTestRepository mongoDBTestRepository) {
         this.mongoDBTestRepository = mongoDBTestRepository;

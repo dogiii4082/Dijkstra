@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MongoDBTestModel {
 
     private String name;
+    private int age;
 
     public String getName() {
         return name;
@@ -22,6 +23,4 @@ public class MongoDBTestModel {
     public void setAge(int age) {
         this.age = age;
     }
-
-    private int age;
 }
