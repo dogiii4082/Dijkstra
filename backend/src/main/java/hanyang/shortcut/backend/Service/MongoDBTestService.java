@@ -1,13 +1,13 @@
 package hanyang.shortcut.backend.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import hanyang.shortcut.backend.Entity.Building;
 import hanyang.shortcut.backend.Entity.MongoDBTestModel;
 import hanyang.shortcut.backend.Repository.MongoDBTestRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MongoDBTestService {
@@ -18,7 +18,14 @@ public class MongoDBTestService {
         this.mongoDBTestRepository = mongoDBTestRepository;
     }
 
-    public List<MongoDBTestModel> getAllMongoDBTestModel() {
+    public List<Building> getAllMongoDBTestModel() {
         return mongoDBTestRepository.findAll();
+    }
+
+    public List<String> getBuildingList() {
+        List<Building> buildings = mongoDBTestRepository.findAll();
+        List<String> names = buildings.stream().map(Building::getName).distinct().sorted().collect(Collectors.toList());
+//        return names;
+        return names;
     }
 }
