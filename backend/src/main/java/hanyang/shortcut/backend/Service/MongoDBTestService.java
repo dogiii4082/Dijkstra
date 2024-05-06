@@ -25,7 +25,15 @@ public class MongoDBTestService {
     public List<String> getBuildingList() {
         List<Building> buildings = mongoDBTestRepository.findAll();
         List<String> names = buildings.stream().map(Building::getName).distinct().sorted().collect(Collectors.toList());
-//        return names;
         return names;
+    }
+
+    public void form(Building building) {
+        mongoDBTestRepository.save(building);
+    }
+
+    public List<Building> findPortal(String name) {
+        List<Building> buildings = mongoDBTestRepository.findByName(name);
+        return buildings;
     }
 }

@@ -14,6 +14,7 @@ const Home = () => {
     const navigate = useNavigate()
     const [options, setOptions] = useState(initialOptions)
     const [building, setBuilding] = useState(initialOptions[0])
+    const [portal, setPortal] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/building_list')
@@ -27,7 +28,13 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        console.log(building)
+        axios.get('http://localhost:8080/api/portal', { params: { name: building.value } })
+        .then((res) => {
+            setPortal(res.data)
+        })
+        .catch((err) => {
+            console.error(err)
+        })
     }, [building])
     
     return (
@@ -45,6 +52,9 @@ const Home = () => {
                 </Grid>
                 <Grid item xs={6} style={{ display: 'flex', justifyContent: 'center' }}>
                     <Button onClick={() => navigate('/form')}>추가</Button>
+                </Grid>
+                <Grid item>
+                    {portal.map(item => <li>{item.portal}</li>)}
                 </Grid>
             </Grid>
         </Fragment>

@@ -5,7 +5,7 @@ import java.util.List;
 public class Building {
 
     private String name;
-    private List<String> portal;
+    private String portal;
 
     public String getName() {
         return name;
@@ -15,11 +15,11 @@ public class Building {
         this.name = name;
     }
 
-    public List<String> getPortal() {
+    public String getPortal() {
         return portal;
     }
 
-    public void setPortal(List<String> portal) {
+    public void setPortal(String portal) {
         this.portal = portal;
     }
 }

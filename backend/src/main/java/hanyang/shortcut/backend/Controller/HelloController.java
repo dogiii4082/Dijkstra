@@ -1,12 +1,9 @@
 package hanyang.shortcut.backend.Controller;
 
 import hanyang.shortcut.backend.Entity.Building;
-import hanyang.shortcut.backend.Entity.MongoDBTestModel;
-import hanyang.shortcut.backend.Repository.MongoDBTestRepository;
 import hanyang.shortcut.backend.Service.MongoDBTestService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,7 +11,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 public class HelloController {
 
-    private MongoDBTestService mongoDBTestService;
+    private final MongoDBTestService mongoDBTestService;
 
     public HelloController(MongoDBTestService mongoDBTestService) {
         this.mongoDBTestService = mongoDBTestService;
@@ -27,12 +24,17 @@ public class HelloController {
 
     @GetMapping("/api/building_list")
     public List<String> getBuildingList() {
-        System.out.println("@@@@@@");
         return mongoDBTestService.getBuildingList();
     }
 
-    @GetMapping("/")
-    public String test() {
-        return "QQQ";
+    @PostMapping("/api/form")
+    public ResponseEntity form(@RequestBody Building building) {
+        mongoDBTestService.form(building);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/api/portal")
+    public List<Building> getPortal(@RequestParam("name") String name) {
+        return mongoDBTestService.findPortal(name);
     }
 }
