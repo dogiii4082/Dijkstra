@@ -17,7 +17,7 @@ const Home = () => {
     const [portal, setPortal] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/building_list')
+        axios.get('http://localhost:84/api/building_list')
         .then((res) => {
             const newOptions = res.data.map((option) => ({ value: option, label: option}))
             setOptions([...initialOptions, ...newOptions])
@@ -28,7 +28,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/portal', { params: { name: building.value } })
+        axios.get('http://localhost:84/api/portal', { params: { name: building.value } })
         .then((res) => {
             setPortal(res.data)
         })

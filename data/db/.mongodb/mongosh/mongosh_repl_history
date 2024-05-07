@@ -1,0 +1,12 @@
+exit
+wzir
+db.building.find()
+use shortcut
+show dbs
+db.building.find()
+db.building.insert({"name": "a"})
+db.building.find()
+use shortcut
+use a
+use shortcut
+use building

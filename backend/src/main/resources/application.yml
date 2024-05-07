@@ -3,6 +3,6 @@ spring:
     name: backend
   data:
     mongodb:
-      uri: mongodb://localhost:27017/shortcut
-      host: 192.168.0.5
+      uri: mongodb://mongodb:27017/shortcut
+      host: localhost
       port: 27017

@@ -1,23 +1,24 @@
-# version: '3'
+version: '3'
 services:
   backend:
     build: ./backend
     ports:
       - 8080:8080
     restart: always
-    # volumes:
-    #   - ./backend:
+    # networks:
+    #   - mynetwork
+    depends_on:
+      - mongodb
 
   mongodb:
     image: mongo
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/dev/null
-    volumes:
-      - ./data/db:/data/db
     ports:
         - 27017:27017
-    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    restart: always
+    volumes:
+      - ./data/db:/data/db
+    # networks:
+    # - mynetwork
 
   frontend:
     build: ./frontend
@@ -26,6 +27,8 @@ services:
       - 3000:3000
     volumes:
       - ./frontend:/usr/src/app
+    # networks:
+    #   - mynetwork
 
   nginx:
     build: ./nginx
@@ -35,3 +38,8 @@ services:
       - backend
       - frontend
     restart: always
+#     networks:
+#       - mynetwork
+
+# networks:
+#   mynetwork:
