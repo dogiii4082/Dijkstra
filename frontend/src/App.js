@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import './App.css';
 import Home from './Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Form from './Form';
+import Register from './Register';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/form' element={<Form />}></Route>
+          <Route path='/form' element={<Register />}></Route>
         </Routes>
       </BrowserRouter>
     </Fragment>

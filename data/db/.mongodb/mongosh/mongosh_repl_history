@@ -1,3 +1,14 @@
+db.building.find()
+db.building.updateOne({ _id: ObjectId('663f631b537b3ab90a2202d8')}, {"name": "b"})
+db.building.updateOne({ _id: ObjectId('663f631b537b3ab90a2202d8')), {"name": "b"})
+db.building.find()
+use shortcut
+show dbs
+db.building.find()
+db.building.fine()
+db.building.insert({"name": "a"})
+use shortcut
+show dbs
 exit
 wzir
 db.building.find()

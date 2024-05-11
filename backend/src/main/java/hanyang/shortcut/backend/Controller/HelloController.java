@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:84")
+@CrossOrigin(origins = "http://localhost:3000")
 public class HelloController {
 
     private final MongoDBTestService mongoDBTestService;
@@ -24,7 +24,6 @@ public class HelloController {
 
     @GetMapping("/api/building_list")
     public List<String> getBuildingList() {
-        System.out.println("GETTTTTTTTT");
         return mongoDBTestService.getBuildingList();
     }
 
