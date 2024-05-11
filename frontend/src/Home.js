@@ -1,10 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Select from 'react-select'
-import Grid from '@mui/material/Grid';
-import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios"
+import { Col, Row, Button } from 'reactstrap'
 
 const initialOptions = [
     { value: '', label: '전체' }
@@ -39,24 +38,24 @@ const Home = () => {
     
     return (
         <Fragment>
-            <Grid container>
-                <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Typography variant="h3">포탈 찾기</Typography>
-                </Grid>
-                <Grid item xs={6}>
+            <Row>
+                <Typography variant="h3" style={{ display: 'flex', justifyContent: 'center' }}>포탈 찾기</Typography>
+            </Row>
+            <Row>
+                <Col xs={8}>
                     <Select 
                         options={options} 
                         defaultValue={initialOptions[0]}
                         onChange={setBuilding}
                     />
-                </Grid>
-                <Grid item xs={6} style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button onClick={() => navigate('/form')}>추가</Button>
-                </Grid>
-                <Grid item>
-                    {portal.map(item => <li>{item.portal}</li>)}
-                </Grid>
-            </Grid>
+                </Col>
+                <Col>
+                    <Button color='primary' onClick={() => navigate('/form')}>추가</Button>
+                </Col>
+            </Row>
+            <Row>
+                {portal.map(item => <li>{item.portal}</li>)}
+            </Row>
         </Fragment>
     )
 }
