@@ -4,7 +4,9 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 
-RUN npm install --save
+RUN export NODE_OPTIONS="--max-old-space-size=8192"
+
+RUN npm install
 
 COPY . /usr/src/app/
 
