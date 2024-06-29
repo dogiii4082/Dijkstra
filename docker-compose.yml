@@ -33,7 +33,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 22:80
+      - 84:80
     depends_on:
       - backend
       - frontend
