@@ -39,7 +39,7 @@ const Home = () => {
     return (
         <Fragment>
             <Row>
-                <Typography variant="h3" style={{ display: 'flex', justifyContent: 'center' }}>포탈 찾기</Typography>
+                <Typography variant="h3" style={{ display: 'flex', justifyContent: 'center' }}>포탈 찾기!!!</Typography>
             </Row>
             <Row>
                 <Col xs={8}>
