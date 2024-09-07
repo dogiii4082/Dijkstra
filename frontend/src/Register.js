@@ -32,7 +32,7 @@ const Register = () => {
             return
         }
 
-        axios.post('http://43.203.122.201:84/api/form', {
+        axios.post('https://dijkstra-hyu.site/api/form', {
             name: building.value,
             portal: data.portal
         })
@@ -47,7 +47,7 @@ const Register = () => {
     }
 
     useEffect(() => {
-        axios.get('http://43.203.122.201:84/api/building_list')
+        axios.get('https://dijkstra-hyu.site/api/building_list')
         .then((res) => {
             const newOptions = res.data.map((option) => ({ value: option, label: option}))
             setOptions([...initialOptions, ...newOptions])

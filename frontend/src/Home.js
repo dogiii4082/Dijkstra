@@ -16,7 +16,7 @@ const Home = () => {
     const [portal, setPortal] = useState([])
 
     useEffect(() => {
-        axios.get('http://43.203.122.201:84/api/building_list')
+        axios.get('https://dijkstra-hyu.site/api/building_list')
         .then((res) => {
             const newOptions = res.data.map((option) => ({ value: option, label: option}))
             setOptions([...initialOptions, ...newOptions])
@@ -27,7 +27,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        axios.get('http://43.203.122.201:84/api/portal', { params: { name: building.value } })
+        axios.get('https://dijkstra-hyu.site/api/portal', { params: { name: building.value } })
         .then((res) => {
             setPortal(res.data)
         })
